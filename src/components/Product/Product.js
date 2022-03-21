@@ -2,9 +2,9 @@ import React from 'react';
 import './Product.css'
 
 // product component for display
-const Product = (props) => {
-    const {handleAddToCart, product} = props;
-    const { name, img, seller, price, ratings } = props.product;
+const Product = ({ handleAddToCart, product }) => {
+    // const {handleAddToCart, product} = props;
+    const { name, img, seller, price, ratings } = product;
 
     return (
         <div className='product'>
