@@ -32,3 +32,5 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 ### Fake data link:
 #### use this link to load data:
  https://raw.githubusercontent.com/ProgrammingHero1/ema-john-resources/main/fakeData/products.json
+
+### used insight data in public folder
