@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import useProducts from '../../hooks/useProducts';
 import { addToDb, getStoredCart } from '../../utilities/fakedb';
 import Cart from '../Cart/Cart';
 import Product from '../Product/Product';
@@ -6,16 +7,13 @@ import './Shop.css'
 
 // Shop component for product card display
 const Shop = () => {
-    // products load from the public/products.json
-    const [products, setProducts] = useState([]);
+    // // products laod from hooks folder where useProducts() functiion declared
+    const [products, setProducts] = useProducts();
 
     //Add to cart 
     const [cart, setCart] = useState([]);
-    useEffect(() => {
-        fetch('products.json')
-            .then(res => res.json())
-            .then(data => setProducts(data));
-    }, []);
+
+
 
     // get cart data from local storage
     useEffect(() => {
@@ -36,11 +34,11 @@ const Shop = () => {
         // console.log(selectedProduct);
         let newCart = [];
         const exists = cart.find(product => product.id === selectedProduct.id);
-        if(!exists){
+        if (!exists) {
             selectedProduct.quantity = 1;
             newCart = [...cart, selectedProduct];
         }
-        else{
+        else {
             const rest = cart.filter(product => product.id !== selectedProduct.id);
             exists.quantity = exists.quantity + 1;
             newCart = [...rest, exists];
