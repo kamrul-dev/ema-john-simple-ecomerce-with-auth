@@ -10,7 +10,7 @@ import './Orders.css';
 const Orders = () => {
     // products laod from hooks folder where useProducts() functiion declared
     const [products, setProducts] = useProducts();
-    const [cart, setCart] = useCart(products);
+    const [cart, setCart] = useCart();
     const navigate = useNavigate();
 
     const handleRemoveProduct = product => {
